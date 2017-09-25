@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--  This site was created in Webflow. http://www.webflow.com -->
+<!--  Last Published: Tue Aug 29 2017 19:09:33 GMT+0000 (UTC)  -->
+<html data-wf-page="59a5a9d5d945b1000137676d" data-wf-site="5996fc6dab717100012be740">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home Page</title>
+  <meta content="Home Page" property="og:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/business-portal.webflow.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="StyleSheets/index.css">
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">
+    !function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);
+
+  </script>
+  <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
+</head>
+
+<body class="body">
+  <div class="homepagewrapper">
+    <div>
+      <div class="div-block-14"><a class="w-inline-block" href="Views/landing.html"><img class="image-3" sizes="(max-width: 479px) 50vw, 151px" src="images/LogoWhite.png" srcset="images/LogoWhite-p-500.png 500w, images/LogoWhite.png 603w" width="151"></a>
+        <div class="div-block"><a class="link-block w-inline-block" href="#"><img src="images/CogWhite.png" width="16"><div class="text-block" onclick="addCompanyInfo()">Account Settings</div></a>
+          <a
+            class="link" href="sign-in.html">Sign Out</a>
+        </div>
+      </div>
+      <div class="container-2 w-container">
+        <div>
+          <div class="text-block-5">Welcome back,</div>
+          <h1 class="heading-2" id="companyName">Add Company Name</h1>
+          <div class="text-block-6" id="companyAddress">Add Company Address</div>
+        </div>
+      </div>
+    </div>
+    <div class="container-3 w-container">
+      <div><a class="homepagebuttons w-button" href="Views/index.html">Reward Campaigns</a><a class="homepagebuttons w-button"
+          href="Views/edit-images.html">Edit Images</a><a class="analytics homepagebuttons notready w-button" data-ix="dropdownbutton"
+          href="#">Customer Analytics</a><a class="ads homepagebuttons notready w-button" data-ix="addropdown" href="#">Advertisement Campaigns</a></div>
+    </div>
+    <div class="container-6 w-container">
+      <div class="analyticsdropdown" data-ix="hidden">
+        <p class="paragraph-2">The LifePoints team is busy developing a page for you to able to track customer demographics, popular locations of
+          your customers, which fitness facilities they attend and more.</p>
+      </div>
+      <div class="advertisingdropdown" data-ix="hidden">
+        <p class="paragraph-3">The LifePoints team is in the process of building a very powerful advertising function. You will be able to run ads
+          directed at your core demographic, or based on a certain location, or at a certain time.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="accountSettingsModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="color:black">Account Settings</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="usr" style="color:black">Company Name:</label>
+              <input type="text" class="form-control" id="usr-Name">
+
+              <label for="usr" style="color:black">Address:</label>
+              <input type="text" class="form-control" id="usr-Address">
+
+              <label for="usr" style="color:black">Website:</label>
+              <input type="text" class="form-control" id="usr-WebSite">
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="color:black">Company Logo:</th>
+                    <th style="color:black">Company Banner:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <td><input type="file" id="fileButton" onchange="readURL(this,'#usr-Logo');" />
+                    <img height="125" width="125" id="usr-Logo" src="#" alt="your image" />
+                  </td>
+                  <td>
+                    <input type="file" id="fileButtonBanner" onchange="readURL(this, '#usr-Banner');" />
+                    <img height="125" width="125" id="usr-Banner" src="#" alt="your image" />
+                  </td>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" id="accountSettingsSave">Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-storage.js"></script>
+  <script>
+    // Initialize Firebase
+
+
+    var config = {
+      apiKey: "AIzaSyBzeH4Y_EAycv98DqnL3Lwh3LP7q2bGhDU",
+      authDomain: "lifepoints-90176.firebaseapp.com",
+      databaseURL: "https://lifepoints-90176.firebaseio.com",
+      projectId: "lifepoints-90176",
+      storageBucket: "lifepoints-90176.appspot.com",
+      messagingSenderId: "349191999959"
+    };
+
+    firebase.initializeApp(config);
+  </script>
+
+  <script src="ViewModels/landingViewModel.js"></script>
+  <script src="Common/common.js"></script>
+
+</body>
+
+</html>
