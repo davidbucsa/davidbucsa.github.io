@@ -3,9 +3,9 @@ $(document).ready(function () {
         if (user) {
             usersRef = new Firebase(firebaseRoot + '/Partners/' + user.uid);
             usersRef.once('value', function (snap) {
-                var companyName = document.getElementById("companyName");   
+                var companyName = document.getElementById("companyName");
                 var companyAddress = document.getElementById("companyAddress");
-                companyName.innerHTML = snap.val().Name;
+                companyNameDoc.innerHTML = snap.val().Name;
                 companyAddress.innerHTML = snap.val().Address;
             });
 

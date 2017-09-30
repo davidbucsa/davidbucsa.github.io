@@ -165,6 +165,12 @@ $(document).ready(function () {
             usersRef.once('value', function (snap) {
                 var companyName = document.getElementById("companyName");
                 var companyAddress = document.getElementById("companyAddress");
+                var companyNameDoc = document.getElementById("usr-Name");
+                var companyAddressDoc = document.getElementById("usr-Address");
+                var companyWebsiteDoc = document.getElementById("usr-Website");
+                companyWebsiteDoc.value = snap.val().Website;
+                companyAddressDoc.value = snap.val().Address;    
+                companyNameDoc.value = snap.val().Name;
                 companyName.innerHTML = snap.val().Name;
                 companyAddress.innerHTML = snap.val().Address;
             });
