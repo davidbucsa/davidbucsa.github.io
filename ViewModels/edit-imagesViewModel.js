@@ -167,8 +167,8 @@ $(document).ready(function () {
                 var companyAddress = document.getElementById("companyAddress");
                 var companyNameDoc = document.getElementById("usr-Name");
                 var companyAddressDoc = document.getElementById("usr-Address");
-                var companyWebsiteDoc = document.getElementById("usr-Website");
-                companyWebsiteDoc.value = snap.val().Website;
+                var companyWebsiteDoc = document.getElementById("usr-WebSite");
+                companyWebsiteDoc.value = snap.val().WebSite;
                 companyAddressDoc.value = snap.val().Address;    
                 companyNameDoc.value = snap.val().Name;
                 companyName.innerHTML = snap.val().Name;
@@ -178,14 +178,26 @@ $(document).ready(function () {
             usersRef = new Firebase(firebaseRoot + '/Partners/' + user.uid + '/Hours/');
             var hoursOfOp = document.getElementById("accountSave");
             hoursOfOp.addEventListener('click', function (e) {
-                
-                 var companyTime = getJsonFromTable();
-                 usersRef.set(companyTime, function (err) {
+
+                var companyTime = getJsonFromTable();
+                usersRef.set(companyTime, function (err) {
                     if (err) {
                         console.log(err);
                     } else {
                     }
                 });
+            });
+
+            usersRef.once('value',function(snap){
+                var hours = snap.val();
+                $('#permiison tbody tr').each(function (i, n) {
+                    var $row = $(n);
+                        $row.find('td:eq(0)').val();
+                        $row.find('td:eq(1) input').val(hours[i].from);
+                        $row.find('td:eq(2) input').val(hours[i].to);
+                        $row.find('td:eq(3) input[type=checkbox]').prop('checked',hours[i].closed)
+                });
+
             });
 
 
@@ -264,26 +276,11 @@ $(document).ready(function () {
 
     $('#timepicker').timepicki();
 
-
-    /*
-        $('#accountSave').click(function () {
-            
-            var rows = [];
-            $('#permiison tbody tr').each(function (i, n) {
-                var $row = $(n);
-                rows.push({
-                    day: $row.find('td:eq(0)').text(),
-                    from: $row.find('td:eq(1) input').val(),
-                    to: $row.find('td:eq(2) input').val(),
-                    closed: $row.find('td:eq(3) input[type=checkbox]').prop('checked'),
-                });
-            });
-            console.log(JSON.stringify(rows));
-    
-        });
-        */
-
 });
 
-
+$('.input-a').each(function(){
+    $(this).clockpicker({
+        autoclose: true
+    });
+});
 

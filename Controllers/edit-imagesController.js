@@ -1,6 +1,3 @@
-
-
-
 function readURLBanner(input, location) {
 
     if (input.files && input.files[0]) {
@@ -72,3 +69,7 @@ var getJsonFromTable = function () {
     return rows;
 };
 
+function EnableTextBox(thing){
+
+    console.log(thing);
+};
